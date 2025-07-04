@@ -1,0 +1,22 @@
+#  Connecteurs & API
+requests
+python-dotenv
+
+#  Data Science
+pandas
+numpy
+scikit-learn
+
+#  Visualisation
+matplotlib
+seaborn
+plotly
+
+#  Jupyter Notebooks
+jupyter
+ipykernel
+nbformat>=4.2.0
+
+#  Backend API (optionnel pour la suite)
+fastapi
+uvicorn
