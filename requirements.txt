@@ -17,6 +17,13 @@ jupyter
 ipykernel
 nbformat>=4.2.0
 
-#  Backend API (optionnel pour la suite)
+#  Backend API
 fastapi
 uvicorn
+
+
+streamlit
+flask
+
+xgboost
+joblib

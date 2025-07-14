@@ -1,6 +1,6 @@
 # Bilan - Semaine 1 - Yasmine Abdennadher
 
-##  Jour 1 – Lundi 1er juillet 2025
+##  Jour 1 – Mardi 1er juillet 2025
 
 ## Travaux réalisés :
 - Compréhension complète du sujet de stage : développement d’une plateforme d’analyse prédictive basée sur la collecte de données externes et la modélisation ML.
@@ -23,7 +23,7 @@
 
 ---
 
-## 📅 Jour 2 – Mardi 2 juillet 2025
+## 📅 Jour 2 – Mercredi 2 juillet 2025
 
 ### ✅ Travaux réalisés :
 - Sélection et téléchargement du dataset **Telco Customer Churn** depuis Kaggle.
@@ -50,7 +50,7 @@
 - Le connecteur est propre, modulaire et prêt à être utilisé pour l'entraînement de modèles.
 
 
-## 📅 Jour 3 – Mercredi 3 juillet 2025
+## 📅 Jour 3 – Jeudi 3 juillet 2025
 
 ### ✅ Travaux réalisés :
 - Nettoyage et préparation du dataset Telco (encodage, suppression colonnes inutiles)
@@ -58,3 +58,17 @@
 - Évaluation via classification report, matrice de confusion, ROC AUC
 - Visualisation de la courbe ROC
 - Organisation claire en deux fichiers : script Python + notebook de modélisation
+
+## 📅 Jour 4 – Vendredi 4 juillet 2025
+
+### ✅ Travaux réalisés :
+- Implémentation de 3 modèles prédictifs pour le churn : LogReg, Random Forest, XGBoost
+- Gestion du déséquilibre des classes avec `class_weight=balanced`
+- Évaluation des performances via classification report, matrice de confusion et ROC AUC
+- Visualisation des courbes ROC dans un notebook unique
+- Début de réflexion sur l’optimisation des hyperparamètres et l’interprétation métier
+- Sélection du modèle final : XGBoost
+- Réentraînement du modèle final sur l'ensemble du dataset
+- Sauvegarde du modèle final au format `.pkl` avec `joblib`
+- Implémentation d'une fonction `predict_churn()` pour prédire à partir d’un fichier CSV
+
