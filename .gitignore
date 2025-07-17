@@ -1,0 +1,22 @@
+# Environnement virtuel
+.venv/
+venv/
+
+# Fichiers compilés
+__pycache__/
+*.pyc
+*.pyo
+
+# Checkpoints Jupyter
+.ipynb_checkpoints/
+
+# Fichiers temporaires
+*.log
+*.sqlite3
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
