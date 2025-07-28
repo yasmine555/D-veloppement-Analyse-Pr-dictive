@@ -10,12 +10,13 @@ import os
 
 import json  
 
+import pandas as pd
+
 def get_sales_data_from_api():
-    """Extrait les données de ventes depuis un fichier JSON brut sur GitHub."""
-    response = requests.get("https://raw.githubusercontent.com/selva86/datasets/master/a10.json")
-    data = response.json()  # ✅ plus fiable
-    df = pd.DataFrame(data["data"], columns=["date", "value"])
-    df['date'] = pd.to_datetime(df['date'])
+    """Charge les données de ventes depuis le fichier CSV distant (via raw.githubusercontent)."""
+    url = "https://raw.githubusercontent.com/selva86/datasets/master/a10.csv"
+    df = pd.read_csv(url, parse_dates=['date'])
+    df = df[['date', 'value']]
     df['month'] = df['date'].dt.month
     df['year'] = df['date'].dt.year
     return df

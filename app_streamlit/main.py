@@ -1,20 +1,56 @@
+# 📁 main.py
+
 import streamlit as st
-from streamlit_option_menu import option_menu
-import streamlit.components.v1 as components
-import subprocess
+import sys
+import os
 
-st.set_page_config(page_title="Dashboard IA", layout="wide")
+# Ajouter src/ au chemin système si besoin
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
 
-choice = option_menu(
-    menu_title=None,
-    options=["Prédiction Churn", "Prévision Ventes"],
-    icons=["person-check", "bar-chart"],
-    orientation="horizontal",
+
+# 🔌 Import des modules locaux
+from weather_app import run as run_weather_air_app
+from churn_app import run as run_churn_app
+from sales_app import run as run_sales_app
+
+# 🛠️ Configuration de la page
+st.set_page_config(
+    page_title="Dashboard IA – Prévision & Analyse",
+    page_icon="📊",
+    layout="wide"
 )
 
-if choice == "Prédiction Churn":
-    st.rerun()  # Relance la page churn.py
-    subprocess.run(["streamlit", "run", "app_streamlit/churn.py"])
-elif choice == "Prévision Ventes":
-    st.rerun()
-    subprocess.run(["streamlit", "run", "app_streamlit/sales_forecasting.py"])
+# 🧠 Titre principal
+st.title("📊 Dashboard IA – Données Prédictives")
+st.markdown("""
+Bienvenue dans votre **plateforme intelligente** regroupant plusieurs modules :
+- 🌤️ Météo & Qualité de l'air
+- 👥 Prédiction de churn client
+- 🛍️ Prévision de ventes
+
+Utilisez le menu à gauche pour naviguer entre les modules.
+""")
+
+# 🧭 Menu de navigation
+st.sidebar.title("🧭 Navigation")
+selected_module = st.sidebar.radio(
+    "Sélectionnez un module à explorer :",
+    options=[
+        "🌤️ Météo & Air",
+        "👥 Prédiction de churn client",
+        "🛍️ Prévision des ventes"
+    ]
+)
+
+# 🔀 Lancement dynamique du module sélectionné
+if selected_module == "🌤️ Météo & Air":
+    run_weather_air_app()
+
+elif selected_module == "👥 Prédiction de churn client":
+    run_churn_app()
+
+elif selected_module == "🛍️ Prévision des ventes":
+    run_sales_app()
+
+else:
+    st.warning("⚠️ Veuillez sélectionner un module.")
