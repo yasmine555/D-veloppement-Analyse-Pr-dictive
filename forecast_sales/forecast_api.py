@@ -5,7 +5,7 @@ import os
 from datetime import datetime
 
 app = Flask(__name__)
-MODEL_PATH = os.path.join(os.path.dirname(__file__), '../models/sales_model.pkl')
+MODEL_PATH = os.path.join(os.path.dirname(__file__), '../app_streamlit/models/sales_model.pkl')
 model = joblib.load(MODEL_PATH)
 
 @app.route('/predict_sales', methods=['GET'])

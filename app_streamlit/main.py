@@ -1,17 +1,19 @@
-# 📁 main.py
-
 import streamlit as st
 import sys
 import os
 
-# Ajouter src/ au chemin système si besoin
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src")))
 
-
-# 🔌 Import des modules locaux
-from weather_app import run as run_weather_air_app
+# Modules principaux
+from meteo_app import run as run_meteo_app
+from air_quality_app import run as run_air_app
 from churn_app import run as run_churn_app
 from sales_app import run as run_sales_app
+
+# Explorateurs
+from ecommerce_app import run as run_ecommerce_app
+from nutrition_app import run as run_nutrition_app
+from covid_app import run as run_covid_app
 
 # 🛠️ Configuration de la page
 st.set_page_config(
@@ -20,7 +22,6 @@ st.set_page_config(
     layout="wide"
 )
 
-# 🧠 Titre principal
 st.title("📊 Dashboard IA – Données Prédictives")
 st.markdown("""
 Bienvenue dans votre **plateforme intelligente** regroupant plusieurs modules :
@@ -28,29 +29,45 @@ Bienvenue dans votre **plateforme intelligente** regroupant plusieurs modules :
 - 👥 Prédiction de churn client
 - 🛍️ Prévision de ventes
 
-Utilisez le menu à gauche pour naviguer entre les modules.
+Et des explorateurs pour d'autres données :
+- 📦 Ecommerce
+- 🧬 OpenFoodFacts
+- 🦠 COVID-19
 """)
 
-# 🧭 Menu de navigation
+# 🧭 Menu latéral
 st.sidebar.title("🧭 Navigation")
 selected_module = st.sidebar.radio(
     "Sélectionnez un module à explorer :",
     options=[
         "🌤️ Météo & Air",
         "👥 Prédiction de churn client",
-        "🛍️ Prévision des ventes"
+        "🛍️ Prévision des ventes",
+        "📦 Ecommerce",
+        "🧬 OpenFoodFacts",
+        "🦠 Covid-19"
     ]
 )
 
-# 🔀 Lancement dynamique du module sélectionné
+# 🔀 Modules
 if selected_module == "🌤️ Météo & Air":
-    run_weather_air_app()
+    sub_module = st.radio(
+        "Choisissez une analyse spécifique :",
+        ["🌦️ Météo", "🌫️ Qualité de l'air"],
+        horizontal=True
+    )
+    if sub_module == "🌦️ Météo":
+        run_meteo_app()
+    else:
+        run_air_app()
 
 elif selected_module == "👥 Prédiction de churn client":
     run_churn_app()
-
 elif selected_module == "🛍️ Prévision des ventes":
     run_sales_app()
-
-else:
-    st.warning("⚠️ Veuillez sélectionner un module.")
+elif selected_module == "📦 Ecommerce":
+    run_ecommerce_app()
+elif selected_module == "🧬 OpenFoodFacts":
+    run_nutrition_app()
+elif selected_module == "🦠 Covid-19":
+    run_covid_app()

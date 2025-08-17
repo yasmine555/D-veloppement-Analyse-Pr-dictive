@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  api:
+    build: ./api              # Dossier où se trouve le Dockerfile de l'API
+    ports:
+      - "8000:8000"           # Port externe:port interne
+    volumes:
+      - ./api:/app            # Monte ton code API dans le conteneur
+    environment:
+      - FLASK_ENV=development
+
+  streamlit:
+    build: ./app_streamlit    # Dossier où se trouve le Dockerfile de Streamlit
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./app_streamlit:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  chatbot:
+    build: ./chatbot          # Dossier où se trouve le Dockerfile du chatbot
+    ports:
+      - "8600:8600"
+    volumes:
+      - ./chatbot:/app
+

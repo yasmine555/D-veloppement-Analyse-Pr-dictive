@@ -1,0 +1,25 @@
+# Empêcher l'envoi des environnements virtuels
+.venv
+venv
+
+# Empêcher l'envoi des dépendances Node
+node_modules
+
+# Fichiers temporaires / caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.tmp
+*.swp
+
+# Données inutiles
+dist
+build
+.cache
+.env
+
+# Git
+.git
+.gitignore

@@ -34,12 +34,12 @@ def train_forecast_model(X, y):
     model.fit(X, y)
     return model
 
-def save_model(model, path='models/sales_model.pkl'):
+def save_model(model, path='app_streamlit/models/sales_model.pkl'):
     """Sauvegarde le modèle entraîné."""
     os.makedirs(os.path.dirname(path), exist_ok=True)
     joblib.dump(model, path)
 
-def load_model(path='models/sales_model.pkl'):
+def load_model(path='app_streamlit/models/sales_model.pkl'):
     """Charge un modèle existant."""
     return joblib.load(path)
 

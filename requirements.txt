@@ -1,29 +1,50 @@
-#  Connecteurs & API
-requests
+# Connecteurs & API
 python-dotenv
+requests
+requests-mock
+geopy
 
-#  Data Science
+# Data Science
+numpy==2.2.0
 pandas
-numpy
 scikit-learn
+xgboost
+prophet
+shap
+faiss-cpu
+sentence-transformers
+transformers
+sentencepiece
+tqdm
 
-#  Visualisation
+# Visualisation
 matplotlib
 seaborn
 plotly
 
-#  Jupyter Notebooks
+# Jupyter Notebooks
 jupyter
 ipykernel
 nbformat>=4.2.0
 
-#  Backend API
+# Backend API
 fastapi
 uvicorn
-
-
-streamlit
 flask
+gunicorn
 
-xgboost
+# Frontend & autres
+streamlit
 joblib
+openpyxl
+statsmodels
+pmdarima==2.0.3
+
+# Tests
+pytest
+
+# Qualité du code
+black
+isort
+flake8
+pre-commit
